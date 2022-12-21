@@ -8,7 +8,7 @@ import java.util.*;
 
 public class Check {
     private   List<Purchase> goods = Arrays.asList(new Purchase("kefir", 20, true),
-            new Purchase("Babra", 20),
+            new Purchase("Bublik", 20),
             new Purchase("sss", 20, true),
             new Purchase("Cheese", 3, true),
             new Purchase("Bread", 4, true),
@@ -28,19 +28,18 @@ public class Check {
         for (Map.Entry<Integer, Integer> entry : idAndAmount.entrySet()) {
             try {
 
-            Integer id = entry.getKey();
-            Integer amount = entry.getValue();
+                Integer id = entry.getKey();
+                Integer amount = entry.getValue();
                 if (id < 0 || id > goods.size() || amount < 0) {
                     throw new IncorrectIdOrAmount("IncorrectIdOrAmount");
                 }
                 goods.get(id).setAmount(amount);
                 purchases.add(goods.get(id));
-
-
-            }catch (IncorrectIdOrAmount e){
+            }
+            catch (IncorrectIdOrAmount e){
                 System.err.println(e.getMessage());
             }
-
+}
 
             for (Purchase purchase : purchases) {
                 if (purchase.isSale()) {
@@ -59,7 +58,7 @@ public class Check {
             }
             System.out.println(printbottom());
         }
-    }
+
 
     private String printHead() {
         Integer NumberOfCashier = 2;
